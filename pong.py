@@ -1,7 +1,6 @@
 
 import random
 import uwebsockets.client
-import select
 
 
 class App():
@@ -106,6 +105,7 @@ class App():
                 return
 
             if ball_x > sw-1:
+                websocket.send("END")
                 self.badge.screen.oled.fill(0)
                 self.badge.show_text("\n\n    YOU WIN")
                 return
